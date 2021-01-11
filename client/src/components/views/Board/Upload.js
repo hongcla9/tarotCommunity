@@ -9,7 +9,7 @@ import {
   Button,
   Select,
 } from 'antd';
-
+import FileUpload from '../utils/FileUpload';
 const {Textarea} = Input;
 
 const Continents = [
@@ -42,6 +42,7 @@ const [Images, setImages] = useState([])
             </div>
             <Form>
                 {/* DROP ZONE*/}
+                <FileUpload/>
                 <br/>
                 <br/>
                 <Select onChange={ContinentsSelectChange} value={ContinentValue}>
