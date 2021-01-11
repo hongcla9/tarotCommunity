@@ -1,8 +1,10 @@
+  
 import React, { useState } from 'react'
 import Axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 import { withRouter } from 'react-router-dom';
+import './css/LoginPage.css'
 function LoginPage(props) {
     const dispatch = useDispatch();
 
@@ -39,22 +41,23 @@ function LoginPage(props) {
 
 
     return (
-        <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center'
-            , width: '100%', height: '100vh'
-        }}>
-            <form style={{ display: 'flex', flexDirection: 'column' }}
-                onSubmit={onSubmitHandler}
-            >
+        <div className="login-box">
+            <h2>Login</h2>
+            <form onSubmit={onSubmitHandler}
+            >    
+                <div className="user-box">
                 <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
+                <input type="email" value={Email} onChange={onEmailHandler} required="" />
+                </div>
+                <div className="user-box">
                 <label>Password</label>
-                <input type="password" value={Password} onChange={onPasswordHandler} />
-                <br />
-                <button type="submit">
-                    Login
+                <input type="password" value={Password} onChange={onPasswordHandler} required="" />
+                </div>
+                <button type="Submit">
+                 Login
                 </button>
-            </form>
+                <a href="/register">register now!</a>
+               </form>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
 import Axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import './Register.css';
 function RegisterPage(props) {
     const dispatch = useDispatch();
 
@@ -53,28 +54,29 @@ function RegisterPage(props) {
 
 
     return (
-        <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center'
-            , width: '100%', height: '100vh'
-        }}>
-            <form style={{ display: 'flex', flexDirection: 'column' }}
-                onSubmit={onSubmitHandler}
-            >
+        <div className="register-box">
+            <h2>Register</h2>
+            <form onSubmit={onSubmitHandler}
+            >   
+            <div className="user-box">
                 <label>Email</label>
                 <input type="email" value={Email} onChange={onEmailHandler} />
-
+               </div>
+               <div className="user-box">
                 <label>Name</label>
                 <input type="text" value={Name} onChange={onNameHandler} />
-
+              </div>
+              <div className="user-box">
                 <label>Password</label>
                 <input type="password" value={Password} onChange={onPasswordHandler} />
-
+                </div>
+                <div className="user-box">
                 <label>Confirm Password</label>
                 <input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
-
+                </div>
                 <br />
                 <button type="submit">
-                    회원 가입
+                   Sign up
                 </button>
             </form>
         </div>
