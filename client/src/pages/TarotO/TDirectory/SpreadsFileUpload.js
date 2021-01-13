@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone'
 import axios from 'axios';
 
 
-function FileUpload(props) {
+function SpreadsFileUpload(props) {
 
     const [Images, setImages] = useState([])
 
@@ -15,7 +15,7 @@ function FileUpload(props) {
         }
         formData.append("file", files[0])
 
-        axios.post('/api/product/image', formData, config)
+        axios.post('/api/spreads/tarot', formData, config)
             .then(response => {
                 if (response.data.success) {
                     setImages([...Images, response.data.filePath])
@@ -74,4 +74,4 @@ function FileUpload(props) {
     )
 }
 
-export default FileUpload
+export default SpreadsFileUpload

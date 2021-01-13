@@ -3,28 +3,28 @@ import axios from "axios";
 import Meta from 'antd/lib/card/Meta';
 import { Col, Card, Row } from 'antd';
 
-function TDirectory(props) {
-    const [Products, setProducts] = useState([])
+function Tspreads(props) {
+    const [Spreads, setSpreads] = useState([])
 
     useEffect(() => {
-        axios.post('/api/product/products')
+        axios.post('/api/spreads/spreads')
         .then(response => {
             if (response.data.success) {
      console.log(response.data)
-     setProducts(response.data.productInfo)
+     setSpreads(response.data.spreadInfo)
             } else {
                 alert("상품들을 가져오는데 실패했습니다.")
             }
         })
     },[])
-const renderCards = Products.map((productInfo,index)=>{
-    console.log('productInfo',productInfo)
+const renderCards = Spreads.map((spreadInfo,index)=>{
+    console.log('spreadInfo',spreadInfo)
     return <Col lg={6} md={8} xs={24} key={index}>
     <Card
-    cover={<img src={`http://localhost:5000/${productInfo.images[0]}`} />}>
+    cover={<img src={`http://localhost:5000/${spreadInfo.images[0]}`} />}>
         <Meta
-        title={productInfo.title}
-        description={productInfo.description}/>
+        title={spreadInfo.title}
+        description={spreadInfo.description}/>
     </Card>
     </Col>
 }) 
@@ -41,10 +41,10 @@ const renderCards = Products.map((productInfo,index)=>{
        
 
         <div style={{ justifyContent :'center'}}>
-        <a href="/product/upload">add</a>
+        <a href="/spreads/upload">add</a>
         </div>
         </div>
     )
 }
 
-export default TDirectory
+export default Tspreads
