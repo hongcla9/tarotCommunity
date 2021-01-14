@@ -21,15 +21,16 @@ mongoose.connect(config.mongoURI, {
   .catch(err => console.log(err))
 
 
-  app.use('/api/users', require('./routes/users'));
-  app.use('/api/product', require('./routes/product')); // 타로백과사전
-  app.use('/api/spreads', require('./routes/spreads')); // 타로백과사전
+  app.use('/api/users', require('./routes/users'));   //유저 
+  app.use('/api/product', require('./routes/product')); // TDirctory
+  app.use('/api/spreads', require('./routes/spreads')); //Tspreads
+  app.use('/api/tboard', require('./routes/tboard')); //TBOARD
  //타로스프레드 api
 
   
   app.use('/uploads', express.static('uploads'));
   app.use('/spreads', express.static('spreads'));
-
+  app.use('/tboard', express.static('tboard'));
 
   const port = process.env.PORT || 5000
 

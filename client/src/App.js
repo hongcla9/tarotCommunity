@@ -9,11 +9,12 @@ import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import NavBar from "./components/views/NavBar/NavBar";
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
-import TDirectory1 from './pages/TarotO/TDirectory/TDirectory1'
+import TDirectory from './pages/TarotO/TDirectory/TDirectory';
 import upload from "./pages/TarotO/TDirectory/Upload";
 import Tspread from "./pages/TarotO/TSpreads/Tspreads";
 import SpreadsUpload from "./pages/TarotO/TSpreads/SpreadsUpload";
-import TBoard from "./pages/TarotO/TBoard/TBoardPage";
+import TarotBoard from "./pages/TarotO/TBoard/TarotBoard";
+import TBoardUpload from "./pages/TarotO/TBoard/TBoardUpload";
 import DetailProductPage from "./pages/TarotO/TDirectory/Sections/DetailProductPage";
 function App() {
   return (
@@ -28,16 +29,17 @@ function App() {
         <Route exact path="/login"component={Auth(LoginPage,false)} />
         <Route exact path="/register" component={Auth(RegisterPage,false)} />
 
-      {/* 타로 백과사전  */}
-        <Route exact path="/tarotdirectory" component={Auth(TDirectory1,null)} />
+        {/* 타로 백과사전  */}
+        <Route exact path="/tarotdirectory" component={Auth(TDirectory,null)} />
         <Route exact path="/product/upload" component={Auth(upload, true)} />
         <Route exact path="/product/:productInfoId" component={Auth(DetailProductPage, true)} />
        
-
         {/* 타로스프레드 라우터 */} 
         <Route exact path="/tarotspread" component={Auth(Tspread,null)} />
         <Route exact path="/spreads/upload" component={Auth(SpreadsUpload, true)} />
-        <Route exact path="/tarotboard" component={Auth(TBoard,true)} />      
+        {/*타로게시판 라우터 */}
+        <Route exact path="/tarotboard" component={Auth(TarotBoard,true)} />      
+        <Route exact path="/tarotboard/upload" component={Auth(TBoardUpload,true)} />      
       </Switch>
     </div>
   </Router>

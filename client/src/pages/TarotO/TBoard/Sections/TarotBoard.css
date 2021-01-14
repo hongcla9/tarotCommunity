@@ -1,0 +1,25 @@
+table {
+  position: relative;
+  justify-items: center;
+  justify-self: center;
+  margin-left: 15%;
+  margin-top: 80px;
+  width: 70%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+}
+th,
+td {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+
+th:nth-child(1) {
+  width: 10%;
+}
+th:nth-child(2) {
+  width: 50%;
+}
+th:nth-child(3) {
+  width: 5%;
+}
