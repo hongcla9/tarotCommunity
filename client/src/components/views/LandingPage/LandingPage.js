@@ -5,7 +5,7 @@ function LandingPage(props) {
 
    return (
        <div>
-
+LANDING
        </div>
    )
 }

@@ -40,7 +40,7 @@ function Upload(props) {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        if (!Title || !Description || !Price || !Continent || Images.length === 0) {
+        if (!Title || !Description || !Continent || Images.length === 0) {
             return alert(" 모든 값을 넣어주셔야 합니다.")
         }
 
@@ -95,9 +95,9 @@ function Upload(props) {
                 </select>
                 <br />
                 <br />
-                <button type="submit">
+                <Button type="submit" onClick={submitHandler}>
                     확인
-                </button>
+                </Button>
             </Form>
 
 

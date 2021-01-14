@@ -95,7 +95,7 @@ function SpreadsUpload(props) {
                 </select>
                 <br />
                 <br />
-                <Button type="onSubmit">
+                <Button type="submit" onClick={submitHandler}>
                     확인
                 </Button>
             </Form>

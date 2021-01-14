@@ -45,4 +45,14 @@ router.post('/', (req, res) => {
     })
 
 })
+router.post('/spreads', (req, res) => {
+
+    //프로덕츠콜렉션에 들어있는 모든 상품 정보를 가져오기
+   Spreads.find() //조건을 넣어도됨
+   .populate("writer") //이사람에 대한 모든정보를 가져올수있음
+   .exec((err,spreadInfo)=>{
+       if(err) return res.status(400).json({success:false,err})
+     return res.status(200).json({success:true,spreadInfo})
+   })
+})
 module.exports = router;
