@@ -37,10 +37,11 @@ router.post('/image', (req, res) => {
 router.post('/', (req, res) => {
 
     //받아온 정보들을 DB에 넣어 준다.
-    const Product = new Product(req.body)
+    const product = new Product(req.body)
 
-    Product.save((err) => {
-        if (err) return res.status(400).json({ success: false, err })
+    product.save((err) => {
+        if (err) return res.status(400).json({ success: false, err },
+            console.log('err',err))
         return res.status(200).json({ success: true })
     })
 })

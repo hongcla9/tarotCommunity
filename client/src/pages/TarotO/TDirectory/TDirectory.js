@@ -67,11 +67,12 @@ const renderCards = Products.map((productInfo,index)=>{
             </Row>
             {PostSize >= Limit && 
             <div style={{ display:'flex', justifyContent :'center'}}>
-            <button onClick={loadMoreHandler}>더보기</button>
+           
             </div> 
             }
             <div style={{ display:'flex', justifyContent :'center'}}>
             <a href="/product/upload">add</a>
+            <button onClick={loadMoreHandler}>더보기</button>
        
         </div>
         </div>
