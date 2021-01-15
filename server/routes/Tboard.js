@@ -40,12 +40,13 @@ router.post('/', (req, res) => {
     const tboard = new Tboard(req.body)
 
     tboard.save((err) => {
-        if (err) return res.status(400).json({ success: false, err })
+        if (err) return res.status(400).json({ success: false, err },
+            console.log('err',err))
         return res.status(200).json({ success: true })
     })
 
 })
-router.post('/tboards', (req, res) => {
+router.post('/gettboard', (req, res) => {
 
     //프로덕츠콜렉션에 들어있는 모든 상품 정보를 가져오기
    Tboard.find() //조건을 넣어도됨
@@ -55,17 +56,4 @@ router.post('/tboards', (req, res) => {
      return res.status(200).json({success:true,tboardInfo})
    })
 })
-router.get('/tboards_by_id', (req, res) => {
-    let type = req.query.type
-    let tboardInfoId = req.query.id
-      //프로덕트아이디를 이용해서 db에서 productid와 같은상품의 정보를 가져온다
-  
-  Tboard.find({_id:tboardInfoId})
-  .populate("writer")
-  .exec((err,tboardInfo)=>{
-      if(err) return res.status(400).send(err)
-      return res.status(200).send({success:true, tboardInfo})
-  })
-  
-  })
 module.exports = router;

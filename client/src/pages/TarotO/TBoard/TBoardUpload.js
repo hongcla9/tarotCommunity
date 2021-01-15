@@ -52,7 +52,7 @@ function TBoardUpload(props) {
             title: Title,
             description: Description,
             images: Images,
-            continents: Continents
+            continents: Continent
         }
 
         Axios.post('/api/tboard', body)
