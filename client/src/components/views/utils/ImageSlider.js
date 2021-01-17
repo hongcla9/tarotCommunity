@@ -1,6 +1,5 @@
 import React from 'react'
 import { Icon, Col, Card, Row, Carousel } from 'antd';
-
 function ImageSlider(props) {
     return (
         <div>

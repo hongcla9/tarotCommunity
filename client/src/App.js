@@ -25,7 +25,7 @@ function App() {
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
             <NavBar />
-            <div style={{ paddingTop: '20px', minHeight: 'calc(80px)' }}></div>
+            <div style={{ paddingTop: '20px', minHeight: 'calc(40px)' }}></div>
       <Switch>
         <Route exact path="/" component={Auth(LandingPage,null)} />
         <Route exact path="/login"component={Auth(LoginPage,false)} />
