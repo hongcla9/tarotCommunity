@@ -16,6 +16,7 @@ import SpreadsUpload from "./pages/TarotO/TSpreads/SpreadsUpload";
 import TarotBoard from "./pages/TarotO/TBoard/TarotBoard";
 import TBoardUpload from "./pages/TarotO/TBoard/TBoardUpload";
 import DetailProductPage from "./pages/TarotO/TDirectory/Sections/DetailProductPage";
+import Update from './pages/TarotO/TDirectory/Sections/Update'
 function App() {
   return (
     <Router>
@@ -33,7 +34,7 @@ function App() {
         <Route exact path="/tarotdirectory" component={Auth(TDirectory,null)} />
         <Route exact path="/product/upload" component={Auth(upload, true)} />
         <Route exact path="/product/:productInfoId" component={Auth(DetailProductPage, true)} />
-       
+        <Route exact path="/product/:productInfoId/update" component={Auth(Update, true)} />
         {/* 타로스프레드 라우터 */} 
         <Route exact path="/tarotspread" component={Auth(Tspread,null)} />
         <Route exact path="/spreads/upload" component={Auth(SpreadsUpload, true)} />
