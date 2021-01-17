@@ -1,0 +1,28 @@
+.con {
+  width: 3rem;
+}
+.title {
+  width: 70%;
+  text-align: center;
+}
+.creatat {
+  width: 20%;
+  text-align: right;
+}
+.views {
+  width: 70%;
+  font-size: 10px;
+  text-align: end;
+}
+.des {
+  height: 70%;
+  text-align: center;
+}
+
+.noresize {
+  width: 1000%;
+  resize: none; /* 사용자 임의 변경 불가 */
+  resize: both; /* 사용자 변경이 모두 가능 */
+  resize: horizontal; /* 좌우만 가능 */
+  resize: vertical; /* 상하만 가능 */
+}

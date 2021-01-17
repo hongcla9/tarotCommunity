@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Button} from 'antd';
-import './ProductTable.css';
-function ProductTable(props) {
+import './TboardTable.css';
+function TboardTable(props) {
 
 
     const [Comment, setComment] = useState("")
@@ -29,7 +29,7 @@ function ProductTable(props) {
             <br/>
             <br/>
             <br/>
-            <Button href="/product/:productInfoId/update">수정</Button>
+            <Button href="/product/update">수정</Button>
             <Button href="/tarotdictionary">목록으로</Button>
           
     </table>
@@ -37,7 +37,7 @@ function ProductTable(props) {
     )
 }
 
-export default ProductTable
+export default TboardTable
 
 
 

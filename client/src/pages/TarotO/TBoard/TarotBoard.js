@@ -22,10 +22,10 @@ function TarotBoard(props) {
         Tboards.map((tboardInfo,index) => (
             <tr key={index}>
             <td>
-                {tboardInfo.continents}
+            {tboardInfo.continents}
             </td>
             <td>
-                {tboardInfo.title}
+            <a href={`/tarotboard/${tboardInfo._id}`}>{tboardInfo.title}</a>
             </td>
             <td>
                 {tboardInfo.views}

@@ -1,8 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios';
-import ProductImage from './ProductImage';
 import ProductTable from './ProductTable';
-import {Row,Col} from 'antd';
 function DetailProductPage(props) {
     const productInfoId = props.match.params.productInfoId
     const [Product, setProduct] = useState({})
