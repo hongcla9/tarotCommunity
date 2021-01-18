@@ -21,14 +21,14 @@ function LandingPage() {
   const table = (props) => (
       Tboards.map((tboardInfo,index) => (
           <tr key={index}>
-          <td>
+          <td style={{border:'none', width:'110px'}}>
           {tboardInfo.continents}
           </td>
-          <td>
+          <td style={{border:'none'}}>
           <a href={`/tarotboard/${tboardInfo._id}`}>{tboardInfo.title}</a>
           </td>
-          <td>
-              {tboardInfo.views}
+          <td style={{border:'none'}}>
+              {tboardInfo.createdAt}
           </td>
       </tr>
   
@@ -37,29 +37,27 @@ function LandingPage() {
   
 
    return (
-       <div>
-         <ImageSlider /> 
-          <form>
-            <div style={{width:'50%', height:'50%'}}> 
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                {table()}
-                    </tbody> 
-            </table>
-        </div>
-          </form>
-       </div> 
-
-     
-
-
+    <div>
+    <ImageSlider /> 
+     <form>
+       <div style={{width:'50%', height:'30%' }}>
+       
+       <table style={{border:'none'}}>
+       
+           <thead>
+           <h3>타로 정보/공유</h3>
+             <tr style={{border:'none'}}>
+                              
+             </tr>
+           </thead>
+           <tbody className="Tboard" style={{border:'none'}} >
+           {table()}
+               </tbody> 
+       </table>
+       </div>
+     </form>
+  </div> 
+  
    )
    
 }

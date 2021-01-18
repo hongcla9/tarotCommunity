@@ -28,7 +28,7 @@ function TarotBoard() {
             <a href={`/tarotboard/${tboardInfo._id}`}>{tboardInfo.title}</a>
             </td>
             <td>
-                {tboardInfo.views}
+                {tboardInfo.createdAt}
             </td>
         </tr>
     
