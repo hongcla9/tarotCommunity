@@ -3,7 +3,7 @@ import {Button} from 'antd';
 import axios from "axios";
 import "./Sections/TarotBoard.css";
 
-function TarotBoard(props) {
+function TarotBoard() {
     const [Tboards, setTboards] = useState([])
 
     useEffect(() => {
@@ -18,7 +18,7 @@ function TarotBoard(props) {
         })
     },[])
 
-    const table = () => (
+    const table = (props) => (
         Tboards.map((tboardInfo,index) => (
             <tr key={index}>
             <td>
