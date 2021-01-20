@@ -14,7 +14,7 @@ function TboardTable(props) {
     const body = {
       comment: Comment,
     };
-    Axios.post("/api/comment", body).then((response) => {
+    Axios.post("/api/tboard/comment", body).then((response) => {
       if (response.data.success) {
         console.log("response.data", response.data);
         alert("업로드에 성공 했습니다.");
@@ -46,7 +46,7 @@ function TboardTable(props) {
         <br />
         <br />
         <br />
-        <Button href="/product/update">수정</Button>
+        <Button href="/tarotboard/update">수정</Button>
         <Button href="/tarotdictionary">목록으로</Button>
       </table>
     </form>

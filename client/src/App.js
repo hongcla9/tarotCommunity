@@ -14,6 +14,7 @@ import TBoardUpload from "./pages/TarotO/TBoard/TBoardUpload";
 import DetailProductPage from "./pages/TarotO/TDirectory/Sections/DetailProductPage";
 import Update from "./pages/TarotO/TDirectory/Sections/Update";
 import DetailTboardPage from "./pages/TarotO/TBoard/Sections/DetailTboardPage";
+import TBoardUpdate from "./pages/TarotO/TBoard/TBoardUpdate";
 function App() {
   return (
     <Router>
@@ -60,6 +61,12 @@ function App() {
             path="/tarotboard/upload"
             component={Auth(TBoardUpload, true)}
           />
+          <Route
+            exact
+            path="/tarotboard/update"
+            component={Auth(TBoardUpdate, true)}
+          />
+
           <Route
             exact
             path="/tarotboard/:tboardInfoId"

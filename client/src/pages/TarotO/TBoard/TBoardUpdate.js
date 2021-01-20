@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Button, Form, Input } from "antd";
 import TBoardFileUpload from "./TBoardFileUpload";
 import Axios from "axios";
@@ -14,10 +14,25 @@ const Continents = [
   { key: 7, value: "Antarctica" },
 ];
 
-function TBoardUpload(props) {
+function TBoardUpdate(props) {
+  const tboardInfoId = props.match.params.tboardInfoId;
+  const [Tboards, setTboards] = useState({});
+  useEffect(() => {
+    Axios.get(`/api/tboard/tboard_by_id?id=${tboardInfoId}&type=single`).then(
+      (response) => {
+        if (response.data.success) {
+          console.log("response.data", response.data);
+          setTboards(response.data.tboardInfo[0]);
+        } else {
+          alert("상세 정보 가져오기를 실패했습니다");
+        }
+      }
+    );
+  }, []);
+
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
-  const [Continent, setContinent] = useState();
+  const [Continent, setContinent] = useState(1);
   const [Images, setImages] = useState([]);
 
   const titleChangeHandler = (event) => {
@@ -54,12 +69,12 @@ function TBoardUpload(props) {
       continents: Continent,
     };
 
-    Axios.post("/api/tboard", body).then((response) => {
+    Axios.post("/api/tboard/update", body).then((response) => {
       if (response.data.success) {
-        alert("업로드에 성공 했습니다.");
-        props.history.push("/");
+        alert("상품 업로드에 성공 했습니다.");
+        props.history.push("/tarotboard");
       } else {
-        alert("업로드에 실패 했습니다.");
+        alert("상품 업로드에 실패 했습니다.");
       }
     });
   };
@@ -80,7 +95,7 @@ function TBoardUpload(props) {
         <Input onChange={titleChangeHandler} value={Title} />
         <br />
         <br />
-        <label>내용</label>
+        <label>설명</label>
         <TextArea onChange={descriptionChangeHandler} value={Description} />
         <br />
         <br />
@@ -102,4 +117,4 @@ function TBoardUpload(props) {
   );
 }
 
-export default TBoardUpload;
+export default TBoardUpdate;

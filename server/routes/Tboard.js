@@ -47,7 +47,6 @@ router.post("/", (req, res) => {
 router.post("/comment", (req, res) => {
   //받아온 정보들을 DB에 넣어 준다.
   const tboard = new Tboard(req.body);
-
   tboard.save((err) => {
     if (err)
       return res
@@ -56,7 +55,17 @@ router.post("/comment", (req, res) => {
     return res.status(200).json({ success: true });
   });
 });
-
+router.post("/update", (req, res) => {
+  //받아온 정보들을 DB에 넣어 준다.
+  const tboard = new Tboard(req.body);
+  tboard.save((err) => {
+    if (err)
+      return res
+        .status(400)
+        .json({ success: false, err }, console.log("err", err));
+    return res.status(200).json({ success: true });
+  });
+});
 router.post("/gettboard", (req, res) => {
   //프로덕츠콜렉션에 들어있는 모든 상품 정보를 가져오기
   Tboard.find() //조건을 넣어도됨
