@@ -63,7 +63,7 @@ function App() {
           />
           <Route
             exact
-            path="/tarotboard/update"
+            path="/tarotboard/update/:tboardInfoId"
             component={Auth(TBoardUpdate, true)}
           />
 

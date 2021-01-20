@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import "./TboardTable.css";
 import Axios from "axios";
-import CommentTable from "./CommentTable";
 function TboardTable(props) {
   const [Comment, setComment] = useState("");
 
@@ -18,7 +17,7 @@ function TboardTable(props) {
     Axios.post("/api/tboard/comment", body).then((response) => {
       if (response.data.success) {
         console.log("response.data", response.data);
-        submitHandler();
+        alert("업로드에 성공 했습니다.");
       } else {
         alert("업로드에 실패 했습니다.");
       }
@@ -47,8 +46,7 @@ function TboardTable(props) {
         <br />
         <br />
         <br />
-        <CommentTable />
-        <Button href="/tarotboard/update">수정</Button>
+        <Button href={"/tarotboard/update/" + props.detail['_id']}>수정</Button>
         <Button href="/tarotdictionary">목록으로</Button>
       </table>
     </form>

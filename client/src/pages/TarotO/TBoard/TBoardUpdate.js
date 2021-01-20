@@ -22,19 +22,24 @@ function TBoardUpdate(props) {
       (response) => {
         if (response.data.success) {
           console.log("response.data", response.data);
+          const info = response.data.tboardInfo[0];
           setTboards(response.data.tboardInfo[0]);
+          setTitle(info.title);
+          setDescription(info.description);
+          setContinent(info.continents);
+          setImages(info.images);
         } else {
           alert("상세 정보 가져오기를 실패했습니다");
         }
       }
     );
   }, []);
-
+  
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
   const [Continent, setContinent] = useState(1);
   const [Images, setImages] = useState([]);
-
+  
   const titleChangeHandler = (event) => {
     setTitle(event.currentTarget.value);
   };
@@ -54,20 +59,21 @@ function TBoardUpdate(props) {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    if (!Title || !Description || !Continent || Images.length === 0) {
-      return alert(" 모든 값을 넣어주셔야 합니다.");
-    }
-
     //서버에 채운 값들을 request로 보낸다.
 
     const body = {
       //로그인 된 사람의 ID
+      id: tboardInfoId,
       writer: props.user.userData._id,
       title: Title,
       description: Description,
       images: Images,
-      continents: Continent,
+      continent: Continent,
     };
+
+    if (!Title || !Description || !Continent || Images.length === 0) {
+      return alert(" 모든 값을 넣어주셔야 합니다.");
+    }
 
     Axios.post("/api/tboard/update", body).then((response) => {
       if (response.data.success) {

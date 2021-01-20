@@ -20,14 +20,14 @@ function CommentTable(props) {
   const table = (props) =>
     Tboards.map((tboardInfo, index) => (
       <tr key={index}>
-        <td style={{ width: "100%" }}>{tboardInfo.comment}</td>
+        <td style={{ width: "980px" }}>{tboardInfo.comment}</td>
       </tr>
     ));
 
   return (
-    <Comment class="comments-container">
+    <Comment style={{ width: "980px" }}>
       <h1>댓글 리스트</h1>
-      <table width="100%">
+      <table style={{ width: "100%" }}>
         <thead>
           <tr>
             <tbody>{table()}</tbody>
