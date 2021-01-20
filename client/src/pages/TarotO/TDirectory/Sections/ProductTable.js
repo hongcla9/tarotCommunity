@@ -1,39 +1,30 @@
 import React,{useState} from 'react'
-import { Button} from 'antd';
+import { Button,Descriptions} from 'antd';
 import './ProductTable.css';
 function ProductTable(props) {
 
-
-    const [Comment, setComment] = useState("")
+    {/*const [Comment, setComment] = useState("")
 
     const CommentChangeHandler = (event) => {
         setComment(event.currentTarget.value)
-    }
+    }*/}
 
     return (
-        <form>
-            <h2>정보/공유</h2>
-    <table width="100">
+        <div>
+        <Descriptions title="Product Info">
+            <Descriptions.Item label="mal">{props.detail.continent}</Descriptions.Item>
+            <Descriptions.Item label="title">{props.detail.title}</Descriptions.Item>
+            <Descriptions.Item label="View">{props.detail.views}</Descriptions.Item>
+            <Descriptions.Item label="Description">{props.detail.description}</Descriptions.Item>
+        </Descriptions>
+
+        <br />
+        <br />
+        <br />
      
-        <tr>
-            <td className="con">{props.detail.continents}</td>
-            <td className="title">{props.detail.title}</td>
-            <td className="createat">{props.detail.createdAt}</td>
-        </tr>
-            <tr className="des">{props.detail.description}</tr>
-            <br/>
-            <br/>
-            <br/>
-            <p>댓글쓰기</p>
-            <textarea class="noresize" onChange={CommentChangeHandler} value={Comment} ></textarea><Button>등록</Button>  
-            <br/>
-            <br/>
-            <br/>
-            <Button href="/product/:productInfoId/update">수정</Button>
-            <Button href="/tarotdictionary">목록으로</Button>
-          
-    </table>
-    </form>
+
+    </div>
+ 
     )
 }
 

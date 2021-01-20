@@ -1,35 +1,38 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const tboardSchema = mongoose.Schema({
+const tboardSchema = mongoose.Schema(
+  {
     number: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
     title: {
-        type: String,
-        maxlength: 50
+      type: String,
+      maxlength: 50,
     },
     description: {
-        type: String
+      type: String,
     },
     images: {
-        type: Array,
-        default: []
+      type: Array,
+      default: [],
     },
     continents: {
-        type: Number,
-        default: 1
+      type: Number,
+      default: 1,
+    },
+    comment: {
+      type: String,
     },
     views: {
-        type: Number,
-        default: 0
-    }
-}, { timestamps: true })
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true }
+);
 
-
-
-
-const Tboard = mongoose.model('Tboard', tboardSchema);
+const Tboard = mongoose.model("Tboard", tboardSchema);
 
 module.exports = { Tboard };
