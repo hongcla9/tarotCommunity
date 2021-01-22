@@ -4,6 +4,7 @@ import Meta from "antd/lib/card/Meta";
 import { Col, Card, Row } from "antd";
 import ImageSlider from "./ImageSlider";
 import TdirecImageSlider from "./Sections/TdirecImageSlider";
+import Navigation from "./Sections/Navigation";
 function TDirectory(props) {
   const [Products, setProducts] = useState([]);
   const [Skip, setSkip] = useState(0);
@@ -65,6 +66,7 @@ function TDirectory(props) {
 
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
+      <Navigation />
       <TdirecImageSlider />
       <div style={{ textAlign: "center" }}>
         <h2>타로 백과사전</h2>

@@ -15,6 +15,7 @@ import DetailProductPage from "./pages/TarotO/TDirectory/Sections/DetailProductP
 import Update from "./pages/TarotO/TDirectory/Sections/Update";
 import DetailTboardPage from "./pages/TarotO/TBoard/Sections/DetailTboardPage";
 import TBoardUpdate from "./pages/TarotO/TBoard/TBoardUpdate";
+import home from "./pages/TarotO/TDirectory/Sections/home";
 function App() {
   return (
     <Router>
@@ -29,12 +30,13 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
-
           {/* 타로 백과사전  */}
+          <Route exact path="/tarotdirectory" component={Auth(home, null)} />
           <Route
             exact
-            path="/tarotdirectory"
+            path="/tarotdirectory/major-arcana"
             component={Auth(TDirectory, null)}
+            Navigation
           />
           <Route exact path="/product/upload" component={Auth(upload, true)} />
           <Route
@@ -55,7 +57,8 @@ function App() {
             component={Auth(SpreadsUpload, true)}
           />
           {/*타로게시판 라우터 */}
-          <Route exact path="/tarotboard" component={Auth(TarotBoard, true)} />
+
+          <Route exact path="/tarotboard/" component={Auth(TarotBoard, true)} />
           <Route
             exact
             path="/tarotboard/upload"
@@ -66,7 +69,6 @@ function App() {
             path="/tarotboard/update/:tboardInfoId"
             component={Auth(TBoardUpdate, true)}
           />
-
           <Route
             exact
             path="/tarotboard/:tboardInfoId"
