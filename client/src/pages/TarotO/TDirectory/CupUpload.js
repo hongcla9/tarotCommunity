@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Input } from "antd";
+import { Typography, Button, Form, Input } from "antd";
 import FileUpload from "./FileUpload";
 import Axios from "axios";
 const { TextArea } = Input;
@@ -14,7 +14,7 @@ const Continents = [
   { key: 7, value: "Antarctica" },
 ];
 
-function Upload(props) {
+function CupUpload(props) {
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
   const [Continent, setContinent] = useState(1);
@@ -102,4 +102,4 @@ function Upload(props) {
   );
 }
 
-export default Upload;
+export default CupUpload;

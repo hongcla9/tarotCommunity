@@ -4,7 +4,7 @@ const multer = require("multer");
 const { Product } = require("../models/Product");
 
 //=================================
-//            메이저 아르카나
+//            마이너 컵
 //=================================
 
 var storage = multer.diskStorage({

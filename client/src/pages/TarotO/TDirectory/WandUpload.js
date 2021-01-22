@@ -14,7 +14,7 @@ const Continents = [
   { key: 7, value: "Antarctica" },
 ];
 
-function Upload(props) {
+function WandUpload(props) {
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
   const [Continent, setContinent] = useState(1);
@@ -54,12 +54,12 @@ function Upload(props) {
       continents: Continent,
     };
 
-    Axios.post("/api/product", body).then((response) => {
+    Axios.post("/api/wand/wands", body).then((response) => {
       if (response.data.success) {
-        alert("상품 업로드에 성공 했습니다.");
+        alert("업로드에 성공 했습니다.");
         props.history.push("/");
       } else {
-        alert("상품 업로드에 실패 했습니다.");
+        alert("업로드에 실패 했습니다.");
       }
     });
   };
@@ -102,4 +102,4 @@ function Upload(props) {
   );
 }
 
-export default Upload;
+export default WandUpload;

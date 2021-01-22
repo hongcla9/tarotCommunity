@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Meta from "antd/lib/card/Meta";
 import { Col, Card, Row } from "antd";
-import ImageSlider from "./ImageSlider";
-import TdirecImageSlider from "./Sections/TdirecImageSlider";
-function TDirectory(props) {
-  const [Products, setProducts] = useState([]);
+import ImageSlider from "../ImageSlider";
+import TdirecImageSlider from "../Sections/TdirecImageSlider";
+function Wand(props) {
+  const [Wand, setWand] = useState([]);
   const [Skip, setSkip] = useState(0);
   const [Limit, setLimit] = useState(8);
   const [PostSize, setPostSize] = useState(0);
@@ -18,13 +18,13 @@ function TDirectory(props) {
     getProducts(body);
   }, []);
   const getProducts = (body) => {
-    axios.post("/api/product/products", body).then((response) => {
+    axios.post("/api/wand/wands", body).then((response) => {
       if (response.data.success) {
         if (body.loadMore) {
-          setProducts([...Products, ...response.data.productInfo]);
+          setWand([...Wand, ...response.data.wandInfo]);
         }
         setPostSize(response.data.postSize);
-        setProducts(response.data.productInfo);
+        setWand(response.data.wandInfo);
       } else {
         alert("상품들을 가져오는데 실패했습니다.");
       }
@@ -43,21 +43,18 @@ function TDirectory(props) {
     getProducts(body);
     setSkip(skip);
   };
-  const renderCards = Products.map((productInfo, index) => {
-    console.log("productInfo", productInfo);
+  const renderCards = Wand.map((wandInfo, index) => {
+    console.log("wandInfo", wandInfo);
     return (
       <Col lg={6} md={8} xs={24} key={index}>
         <Card
           cover={
-            <a href={`/product/${productInfo._id}`}>
-              <ImageSlider images={productInfo.images} />
+            <a href={`/wands/${wandInfo._id}`}>
+              <ImageSlider images={wandInfo.images} />
             </a>
           }
         >
-          <Meta
-            title={productInfo.title}
-            description={productInfo.description}
-          />
+          <Meta title={wandInfo.title} description={wandInfo.description} />
         </Card>
       </Col>
     );
@@ -98,11 +95,11 @@ function TDirectory(props) {
         <div style={{ display: "flex", justifyContent: "center" }}></div>
       )}
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <a href="/product/upload">add</a>
+        <a href="/wand/upload">add</a>
         <button onClick={loadMoreHandler}>더보기</button>
       </div>
     </div>
   );
 }
 
-export default TDirectory;
+export default Wand;

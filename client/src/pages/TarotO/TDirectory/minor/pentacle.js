@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Meta from "antd/lib/card/Meta";
 import { Col, Card, Row } from "antd";
-import ImageSlider from "./ImageSlider";
-import TdirecImageSlider from "./Sections/TdirecImageSlider";
+import TdirecImageSlider from "../Sections/TdirecImageSlider";
 function TDirectory(props) {
   const [Products, setProducts] = useState([]);
   const [Skip, setSkip] = useState(0);
