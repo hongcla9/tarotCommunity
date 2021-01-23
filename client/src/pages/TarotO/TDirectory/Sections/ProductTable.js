@@ -1,35 +1,32 @@
-import React,{useState} from 'react'
-import { Button,Descriptions} from 'antd';
-import './ProductTable.css';
+import React, { useState } from "react";
+import { Button, Descriptions } from "antd";
+import "./ProductTable.css";
 function ProductTable(props) {
-
-    {/*const [Comment, setComment] = useState("")
+  {
+    /*const [Comment, setComment] = useState("")
 
     const CommentChangeHandler = (event) => {
         setComment(event.currentTarget.value)
-    }*/}
+    }*/
+  }
 
-    return (
-        <div>
-        <Descriptions title="Product Info">
-            <Descriptions.Item label="mal">{props.detail.continent}</Descriptions.Item>
-            <Descriptions.Item label="title">{props.detail.title}</Descriptions.Item>
-            <Descriptions.Item label="View">{props.detail.views}</Descriptions.Item>
-            <Descriptions.Item label="Description">{props.detail.description}</Descriptions.Item>
-        </Descriptions>
+  return (
+    <div>
+      <table>
+        <td style={{ fontSize: "20px", fontWeight: "bold" }}>
+          {props.detail.title}
+        </td>
+        <br></br>
+        <br></br>
+        <br></br>
+        <td style={{ textAlign: "center" }}>{props.detail.description}</td>
+      </table>
 
-        <br />
-        <br />
-        <br />
-     
-
+      <br />
+      <br />
+      <br />
     </div>
- 
-    )
+  );
 }
 
-export default ProductTable
-
-
-
-
+export default ProductTable;

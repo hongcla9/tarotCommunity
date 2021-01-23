@@ -10,10 +10,13 @@ table {
 }
 th,
 td {
-  border-bottom: 1px solid #444444;
+  border-bottom: 1px solid #917e7e;
   padding: 10px;
+  text-decoration: none;
 }
-
+a {
+  text-decoration: none;
+}
 th:nth-child(1) {
   width: 10%;
 }

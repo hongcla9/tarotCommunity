@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import "./TboardTable.css";
 import Axios from "axios";
+import CommentTable from "./CommentTable";
 function TboardTable(props) {
   const [Comment, setComment] = useState("");
 
@@ -32,22 +33,34 @@ function TboardTable(props) {
           <td className="title">{props.detail.title}</td>
           <td className="createat">{props.detail.createdAt}</td>
         </tr>
-        <tr className="des">{props.detail.description}</tr>
+        <tr className="des" style={{ paddingTop: "50px" }}>
+          {props.detail.description}
+        </tr>
         <br />
         <br />
         <br />
+        <br />
+        <br />
+        <br />
+
+        <Button href={"/tarotboard/update/" + props.detail["_id"]}>수정</Button>
+        <Button href="/tarotboard">목록으로</Button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <p>댓글쓰기</p>
         <div onSubmit={submitHandler}>
-          <textarea onChange={CommentChangeHandler} value={Comment}></textarea>
-          <Button type="submit" onClick={submitHandler}>
+          <textarea
+            className="noresize"
+            onChange={CommentChangeHandler}
+            value={Comment}
+          ></textarea>
+          <Button className="submit" type="submit" onClick={submitHandler}>
             등록
           </Button>
         </div>
-        <br />
-        <br />
-        <br />
-        <Button href={"/tarotboard/update/" + props.detail['_id']}>수정</Button>
-        <Button href="/tarotdictionary">목록으로</Button>
+        <CommentTable />
       </table>
     </form>
   );

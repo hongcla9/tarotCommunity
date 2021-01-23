@@ -26,3 +26,12 @@
   resize: horizontal; /* 좌우만 가능 */
   resize: vertical; /* 상하만 가능 */
 }
+
+.ant-descriptions-view {
+  width: 100%;
+  padding-right: 50px;
+}
+.ant-descriptions-item-container {
+  width: 200%;
+  height: 200%;
+}

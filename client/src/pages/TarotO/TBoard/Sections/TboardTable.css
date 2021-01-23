@@ -16,13 +16,21 @@
 }
 .des {
   height: 70%;
-  text-align: center;
+  text-align: justify;
 }
 
 .noresize {
-  width: 1000%;
+  width: 60%;
   resize: none; /* 사용자 임의 변경 불가 */
   resize: both; /* 사용자 변경이 모두 가능 */
   resize: horizontal; /* 좌우만 가능 */
   resize: vertical; /* 상하만 가능 */
+}
+
+.submit {
+  text-align: center;
+  justify-items: center;
+  margin-left: 30px;
+  background-color: rgb(254, 254, 255);
+  border-radius: 10%;
 }
