@@ -46,7 +46,7 @@ function TDirectory(props) {
   const renderCards = Products.map((productInfo, index) => {
     console.log("productInfo", productInfo);
     return (
-      <Col lg={6} md={8} xs={24} key={index}>
+      <Col lg={8} md={8} xs={8} key={index}>
         <Card
           cover={
             <a href={`/product/${productInfo._id}`}>
@@ -54,10 +54,7 @@ function TDirectory(props) {
             </a>
           }
         >
-          <Meta
-            title={productInfo.title}
-            description={productInfo.description}
-          />
+          <Meta title={productInfo.title} />
         </Card>
       </Col>
     );
@@ -94,11 +91,8 @@ function TDirectory(props) {
         </p>
       </div>
       <Row gutter={[16, 16]}>{renderCards}</Row>
-      {PostSize >= Limit && (
-        <div style={{ display: "flex", justifyContent: "center" }}></div>
-      )}
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <a href="/product/upload">add</a>
+        <a href="/tarotdirectory/upload">add</a>
         <button onClick={loadMoreHandler}>더보기</button>
       </div>
     </div>

@@ -67,7 +67,7 @@ function TBoardUpload(props) {
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2>글쓰기</h2>
+        <h2 style={{ padding: "40px" }}>글쓰기</h2>
       </div>
 
       <Form onSubmit={submitHandler}>

@@ -6,7 +6,7 @@ import LoginPage from "./components/views/LoginPage/LoginPage";
 import NavBar from "./components/views/NavBar/NavBar";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import TDirectory from "./pages/TarotO/TDirectory/TDirectory";
-import upload from "./pages/TarotO/TDirectory/Upload";
+import Upload from "./pages/TarotO/TDirectory/Upload";
 import Tspread from "./pages/TarotO/TSpreads/Tspreads";
 import SpreadsUpload from "./pages/TarotO/TSpreads/SpreadsUpload";
 import TarotBoard from "./pages/TarotO/TBoard/TarotBoard";
@@ -15,16 +15,7 @@ import DetailProductPage from "./pages/TarotO/TDirectory/Sections/DetailProductP
 import Update from "./pages/TarotO/TDirectory/Sections/Update";
 import DetailTboardPage from "./pages/TarotO/TBoard/Sections/DetailTboardPage";
 import TBoardUpdate from "./pages/TarotO/TBoard/TBoardUpdate";
-import home from "./pages/TarotO/TDirectory/Sections/home";
 
-import CupUpload from "./pages/TarotO/TDirectory/CupUpload";
-import PentacleUpload from "./pages/TarotO/TDirectory/PentacleUpload";
-import SwordUpload from "./pages/TarotO/TDirectory/swordUpload";
-import WandUpload from "./pages/TarotO/TDirectory/wandUpload";
-import Pentacle from "./pages/TarotO/TDirectory/minor/pentacle";
-import Cup from "./pages/TarotO/TDirectory/minor/cup";
-import Sword from "./pages/TarotO/TDirectory/minor/sword";
-import Wand from "./pages/TarotO/TDirectory/minor/wand";
 function App() {
   return (
     <Router>
@@ -40,29 +31,19 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           {/* 타로 백과사전  */}
-          <Route exact path="/tarotdirectory" component={Auth(home, null)} />
+
           <Route
             exact
-            path="/tarotdirectory/major-arcana"
+            path="/tarotdirectory"
             component={Auth(TDirectory, null)}
             Navigation
           />
-          <Route exact path="/wand" component={Auth(Wand, true)} />
-          <Route exact path="/wand/upload" component={Auth(WandUpload, true)} />
-          <Route exact path="/sword" component={Auth(Sword, true)} />
           <Route
             exact
-            path="/sword/upload"
-            component={Auth(SwordUpload, true)}
+            path="/tarotdirectory/upload"
+            component={Auth(Upload, null)}
+            Navigation
           />
-          <Route exact path="/pentacle" component={Auth(Pentacle, true)} />
-          <Route
-            exact
-            path="/pentacle/upload"
-            component={Auth(PentacleUpload, true)}
-          />
-          <Route exact path="/cup" component={Auth(Cup, true)} />
-          <Route exact path="/cup/upload" component={Auth(CupUpload, true)} />
 
           <Route
             exact
