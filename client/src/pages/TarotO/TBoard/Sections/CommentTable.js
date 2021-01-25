@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "antd";
 import Axios from "axios";
-import { Comment, Tooltip, Avatar } from "antd";
 
 function CommentTable(props) {
-  const [Tboards, setTboards] = useState([]);
+  const [Comment, setComment] = useState("");
 
   useEffect(() => {
-    Axios.post("/api/tboard/gettboard").then((response) => {
+    Axios.post("/api/tboard/commentInfo").then((response) => {
       if (response.data.success) {
         console.log("response.data", response.data);
-        setTboards(response.data.tboardInfo);
+        setComment(response.data.commentInfo);
       } else {
-        alert("댓글을 가져오는데 실패했습니다.");
+        alert("글을 가져오는데 실패했습니다.");
       }
     });
   }, []);
 
   const table = (props) =>
-    Tboards.map((tboardInfo, index) => (
+    Comment.map((commentInfo, index) => (
       <tr key={index}>
-        <td style={{ width: "980px" }}>{tboardInfo.comment}</td>
+        <td style={{ width: "980px" }}>{commentInfo.comment}</td>
       </tr>
     ));
 

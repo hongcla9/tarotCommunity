@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const { Tboard } = require("../models/Tboard");
+const { Comment } = require("../models/Comment");
 
 //=================================
 //             Product
@@ -59,14 +60,23 @@ router.post("/", (req, res) => {
 });
 router.post("/comment", (req, res) => {
   //받아온 정보들을 DB에 넣어 준다.
-  const tboard = new Tboard(req.body);
-  tboard.save((err) => {
+  const comment = new Comment(req.body);
+  comment.save((err) => {
     if (err)
       return res
         .status(400)
         .json({ success: false, err }, console.log("err", err));
     return res.status(200).json({ success: true });
   });
+});
+router.post("/commentInfo", (req, res) => {
+  //프로덕츠콜렉션에 들어있는 모든 상품 정보를 가져오기
+  Comment.find() //조건을 넣어도됨
+    .populate("writer") //이사람에 대한 모든정보를 가져올수있음
+    .exec((err, commentInfo) => {
+      if (err) return res.status(400).json({ success: false, err });
+      return res.status(200).json({ success: true, commentInfo });
+    });
 });
 router.post("/update", (req, res) => {
   //받아온 정보들을 DB에 넣어 준다.

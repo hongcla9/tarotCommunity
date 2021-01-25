@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Button, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import TBoardFileUpload from "./TBoardFileUpload";
 import Axios from "axios";
 const { TextArea } = Input;
