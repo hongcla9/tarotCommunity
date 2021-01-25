@@ -22,9 +22,6 @@ const tboardSchema = mongoose.Schema(
       type: Number,
       default: 1,
     },
-    comment: {
-      type: String,
-    },
     views: {
       type: Number,
       default: 0,
