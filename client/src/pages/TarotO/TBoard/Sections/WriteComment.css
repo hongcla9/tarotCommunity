@@ -1,0 +1,15 @@
+.commentTable {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 40px;
+  z-index: 9;
+  padding: 20px;
+  text-align: center;
+  animation: flashAnimation 5s ease-in-out forwards;
+}
+.commentTable .text {
+  width: 500px;
+  height: 40px;
+}

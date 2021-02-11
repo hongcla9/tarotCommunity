@@ -3,10 +3,12 @@ import { Button } from "antd";
 import "./TboardTable.css";
 import Axios from "axios";
 import WriteComment from "./WriteComment";
+import CommentTable from "./CommentTable";
 function TboardTable(props) {
   Axios.post("/api/tboard/gettboard").then((response) => {
     if (response.data.success) {
       console.log("response.data", response.data);
+      alert("업로드에 성공 했습니다.");
     } else {
       alert("업로드에 실패 했습니다.");
     }
@@ -35,7 +37,7 @@ function TboardTable(props) {
         <br></br>
         <br></br>
         <WriteComment />
-
+        <CommentTable />
         <br></br>
         <br></br>
       </table>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button, Form } from "antd";
 import Axios from "axios";
 
 function WriteComment(props) {
@@ -13,29 +14,27 @@ function WriteComment(props) {
   const body = {
     comment: Comment,
   };
-  useEffect(() => {
+  const saveComment = (e) => {
+    e.preventDefault();
     Axios.post("/api/tboard/comment", body).then((response) => {
       if (response.data.success) {
-        console.log("response.data", response.data);
-        setComment(response.data.commentInfo);
+        alert("업로드에 성공 했습니다.");
       } else {
-        alert("글을 가져오는데 실패했습니다.");
+        alert("글을 업로드하는데 실패했습니다.");
       }
     });
-  }, []);
 
-  return (
-    <form>
-      <p>댓글쓰기</p>
-      <div onSubmit={submitHandler}>
-        <textarea
-          className="noresize"
-          onChange={CommentChangeHandler}
-          value={Comment}
-        ></textarea>
-      </div>
-    </form>
-  );
+    return (
+      <table className="commentTable" onSubmit={submitHandler}>
+        <h1>댓글쓰기</h1>
+        <div className="text">
+          <textarea onChange={CommentChangeHandler} value={Comment}></textarea>
+          <Button type="submit" onClick={saveComment}>
+            등록
+          </Button>
+        </div>
+      </table>
+    );
+  };
 }
-
 export default WriteComment;
