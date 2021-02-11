@@ -5,10 +5,13 @@ import Axios from "axios";
 const { TextArea } = Input;
 
 const Continents = [
-  { key: "[타로봐드립니다]", value: "[타로봐드립니다]" },
-  { key: "[타로봐주세요]", value: "[타로봐주세요]" },
-  { key: "[타로후기]", value: "[타로후기]" },
-  { key: "[타로질문]", value: "[타로질문]" },
+  { key: 1, value: "Africa" },
+  { key: 2, value: "Europe" },
+  { key: 3, value: "Asia" },
+  { key: 4, value: "North America" },
+  { key: 5, value: "South America" },
+  { key: 6, value: "Australia" },
+  { key: 7, value: "Antarctica" },
 ];
 
 function TBoardUpload(props) {

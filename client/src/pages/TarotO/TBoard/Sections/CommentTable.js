@@ -15,12 +15,11 @@ function CommentTable(props) {
     });
   }, []);
 
-  const table = (props) =>
-    Comment.map((commentInfo, index) => (
-      <tr key={index}>
-        <td style={{ width: "980px" }}>{commentInfo.comment}</td>
-      </tr>
-    ));
+  const table = Comment.map((commentInfo, index) => {
+    <tr key={index}>
+      <td style={{ width: "980px" }}>{commentInfo.comment}</td>
+    </tr>;
+  });
 
   return (
     <Comment style={{ width: "980px" }}>
