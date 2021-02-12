@@ -28,8 +28,8 @@ function App() {
         ></div>
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
-          <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route path="/login" component={Auth(LoginPage, false)} />
+          <Route path="/register" component={Auth(RegisterPage, false)} />
           {/* 타로 백과사전  */}
 
           <Route
@@ -39,7 +39,6 @@ function App() {
             Navigation
           />
           <Route
-            exact
             path="/tarotdirectory/upload"
             component={Auth(Upload, null)}
             Navigation
